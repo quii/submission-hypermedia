@@ -11,5 +11,14 @@ RUN go build -v -o /run-app .
 
 FROM debian:bookworm
 
+# Copy the executable from the builder stage
 COPY --from=builder /run-app /usr/local/bin/
+
+# Copy template files to the final image
+COPY --from=builder /usr/src/app/templates /templates
+COPY --from=builder /usr/src/app/static /static
+
+# Set working directory where templates might be expected
+WORKDIR /
+
 CMD ["run-app"]
