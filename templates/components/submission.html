@@ -1,0 +1,39 @@
+<div class="submission-details">
+    <div class="submission-header">
+        <h3>{{.Title}}</h3>
+        <div class="submission-status status-{{.Status}}">{{.Status}}</div>
+        <div class="watchlist-indicator {{if .OnWatchlist}}on-watchlist{{end}}">
+            {{if .OnWatchlist}}On Watchlist{{else}}Not on Watchlist{{end}}
+        </div>
+    </div>
+
+    <div class="submission-body">
+        <p><strong>Author:</strong> {{.Author}}</p>
+
+        <div class="abstract">
+            <h4>Abstract</h4>
+            <p>{{.Abstract}}</p>
+        </div>
+
+        <div class="keywords">
+            <h4>Keywords</h4>
+            <ul>
+                {{range .Keywords}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="submission-controls">
+        <button hx-post="/submission/approve" hx-target="#submission-component" class="approve-btn">
+            Approve
+        </button>
+        <button hx-post="/submission/reject" hx-target="#submission-component" class="reject-btn">
+            Reject
+        </button>
+        <button hx-post="/submission/toggle-watchlist" hx-target="#submission-component" class="watchlist-btn">
+            {{if .OnWatchlist}}Remove from Watchlist{{else}}Add to Watchlist{{end}}
+        </button>
+    </div>
+</div>

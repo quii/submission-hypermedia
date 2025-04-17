@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Hypermedia Demo</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+</head>
+<body>
+    <header>
+        <h1>Submission Hypermedia Demo</h1>
+        <nav>
+            <ul>
+                <li><a href="/pages/page1">Submission Overview</a></li>
+                <li><a href="/pages/page2">Review Form</a></li>
+                <li><a href="/pages/page3">Editor Notes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content">
+            {{block "content" .}}{{end}}
+        </div>
+
+        <aside class="submission-container">
+            <h2>Submission</h2>
+            <div id="submission-component" hx-get="/components/submission" hx-trigger="load"></div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>Hypermedia Demo - Using Go and HTMX</p>
+    </footer>
+</body>
+</html>

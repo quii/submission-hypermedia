@@ -1,0 +1,30 @@
+{{define "content"}}
+<h2>Review Form</h2>
+<p>Use this form to review the submission details.</p>
+
+<div class="page-content">
+    <form class="review-form">
+        <div class="form-group">
+            <label for="technical-merit">Technical Merit (1-10):</label>
+            <input type="number" id="technical-merit" min="1" max="10" value="7">
+        </div>
+
+        <div class="form-group">
+            <label for="novelty">Novelty (1-10):</label>
+            <input type="number" id="novelty" min="1" max="10" value="8">
+        </div>
+
+        <div class="form-group">
+            <label for="clarity">Clarity (1-10):</label>
+            <input type="number" id="clarity" min="1" max="10" value="6">
+        </div>
+
+        <div class="form-group">
+            <label for="review-comments">Comments:</label>
+            <textarea id="review-comments" rows="5" placeholder="Enter your review comments here..."></textarea>
+        </div>
+
+        <button type="button">Save Review</button>
+    </form>
+</div>
+{{end}}
